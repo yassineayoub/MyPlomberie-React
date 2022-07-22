@@ -1,0 +1,12 @@
+.btn__container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 100px;
+
+  .item__btn {
+    height: 25px;
+    width: 15px;
+  }
+}
+

@@ -1,0 +1,8 @@
+# check out all text files as LF always on all OSes
+* text auto
+
+# make sure that these files aren't modified
+*.png binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
