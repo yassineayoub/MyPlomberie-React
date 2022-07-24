@@ -59,7 +59,7 @@ function App() {
         .reduce((prevVal, curVal) => prevVal + curVal);
       sumCoeff = sumCoeff < 2 ? 2 : sumCoeff;
       const diamMin = coeffDiamTable[sumCoeff];
-      if (tubeSelected !== '') {
+      if (tubeSelected !== '' && diamMin !== undefined) {
         return getRecommandedTube(diamMin);
       }
       return diamMin;
@@ -148,6 +148,8 @@ function App() {
   const handleSelectedTube = (tube) => {
     if (tube !== 'default') {
       setSelectedTube(tube);
+    } else {
+      setSelectedTube('');
     }
   };
 
