@@ -22,6 +22,7 @@ function ModalCentered(props) {
   // const [isInfoShowed, setIsInfoShowed] = useState(false);
   const isEquipSelected = props.equipements.length === 0;
   const isTubeSelected = props.tube !== '';
+  const toMutchEquipmeent = props.diamgeneralmin === undefined;
 
   // const handleShowInfo = () => {
   //   setIsInfoShowed(true);
@@ -51,8 +52,9 @@ function ModalCentered(props) {
               </ul>
               <hr />
               <h5 className="text-center">Alimentation générale</h5>
-              {isTubeSelected && <p className="text-center">La canalisation minimal requise pour alimenter l'ensemble des équipements est : <br /> <strong>{props.tube} {props.diamgeneralmin}</strong></p> }
-              {!isTubeSelected && (
+              {toMutchEquipmeent && <p className="text-center">Vous disposez de trop d'équipements pour cette méthode de dimensionnement, la méthode collective serait plus adéquate</p>}
+              {!toMutchEquipmeent && isTubeSelected && <p className="text-center">La canalisation minimal requise pour alimenter l'ensemble des équipements est : <br /> <strong>{props.tube} {props.diamgeneralmin}</strong></p> }
+              {!toMutchEquipmeent && !isTubeSelected && (
               <>
                 <p className="text-center">La diamètre intérieur minimal de la canalisation nécessaire à alimenter l'ensemble des équipements est : <br /> <strong>{props.tube} {props.diamgeneralmin} mm</strong></p>
                 {/* <a href="#" onClick={handleShowInfo}>En savoir plus</a>

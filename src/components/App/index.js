@@ -34,7 +34,7 @@ function App() {
   // Tube selectionné par l'utilisateur
   const [tubeSelected, setSelectedTube] = useState('');
   // Affichage conditionnel du modal
-  const [isVisible, setIsVisible] = useState(false);
+  const [isModalVisible, setisModalVisible] = useState(false);
   // List unique de tube
   const tubesList = [...new Set(tubeDataBase.map((tube) => tube.type))];
   // Equipement à calculer, dont le count > 0
@@ -151,18 +151,11 @@ function App() {
     }
   };
 
-  /**
-   * Set la visibilité du modal
-   */
-  const handleVisibleModal = () => {
-    setIsVisible(true);
-  };
-
   return (
     <div className="app m-auto col-11 col-md-6 col-xl-4">
       <ModalCentered
-        show={isVisible}
-        onHide={() => setIsVisible(false)}
+        show={isModalVisible}
+        onHide={() => setisModalVisible(false)}
         tube={tubeSelected}
         equipements={equipementToCalc}
         diamgeneralmin={getGeneralDiameterMin(equipementToCalc, coeffDiam)}
@@ -181,7 +174,7 @@ function App() {
         equipementList={baseEquipement}
         handleButtons={handleButtons}
       />
-      <CalcZone onCalc={handleVisibleModal} resetValue={handleResetValue} />
+      <CalcZone setisModalVisible={setisModalVisible} resetValue={handleResetValue} />
       <Footer />
     </div>
   );
