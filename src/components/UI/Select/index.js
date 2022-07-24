@@ -8,7 +8,7 @@ function Select({
 }) {
   return (
     <form className="d-flex mb-2" onSubmit={insertEquipement}>
-      <select className="form-select text-center" onChange={selectedEquipement}>
+      <select className="form-select text-center" onChange={(e) => selectedEquipement(e.currentTarget.value)}>
         {data.map((item) => <option key={item.name} value={item.name}>{item.name}</option>)}
       </select>
       <button type="submit" className="btn btn-primary d-flex align-items-center gap-1 ms-2">

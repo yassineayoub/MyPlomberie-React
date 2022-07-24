@@ -105,11 +105,6 @@ function App() {
     return setBaseEquipement(updatedEquipement);
   };
 
-  // Set le selectedEquipement au changement ds le select
-  const handleSelectedEquipement = (e) => {
-    setSelectedEquipement(e.currentTarget.value);
-  };
-
   /**
    * A la soumission , ajoute l'équipement selectionné dans le DOM
    * @param {Event} e
@@ -176,7 +171,7 @@ function App() {
       <div className="mb-2">
         <Select
           data={selectListEquipement}
-          selectedEquipement={handleSelectedEquipement}
+          selectedEquipement={setSelectedEquipement}
           insertEquipement={handleSubmitForm}
         />
         <SelectTube selectedTube={handleSelectedTube} tubesList={tubesList} />
